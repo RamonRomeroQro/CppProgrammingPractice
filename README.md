@@ -176,5 +176,83 @@ using namespace std;
 ```
 **Namespaces are primarily used to organize larger program components, such as libraries. They simplify the composition of a program out of separately developed parts.**
 
+## Error handling
+
+### Exceptions
+
+``` cpp
+
+if (s<0) throw length_error{};
+elem = new double[s];
+sz = s;
+
+```
+
+### Tries
+
+``` cpp 
+
+void test() {
+try {
+Vector v(−27);
+}
+catch (std::length_error) {
+// handle negative size }
+catch (std::bad_alloc) {
+// handle memory exhaustion
+} }
+
+````
+In general, 
+
+``` cpp 
+static_assert(A,S) 
+
+```
+Prints S as a compiler error message if A is not true.
+
+## Virtual 
+
+Virtual Functions are used to support Runtime Polymorphism.
+
+That is, virtual keyword tells the compiler not to make the decision (of function binding) at compile time, rather postpone it for runtime".
+
+You can make a function virtual by preceding the keyword virtual in its base class declaration. For example,
+
+```cpp 
+ class Base
+ {
+    virtual void func();
+ }
+
+ ```
+
+When a Base Class has a virtual member function, any class that inherits from the Base Class can redefine the function with exactly the same prototype i.e. only functionality can be redefined, not the interface of the function.
+
+```cpp
+
+ class Derive : public Base
+ {
+    void func();
+ }
+
+``` 
+A Base class pointer can be used to point to Base class object as well as a Derived class object.
+When the virtual function is called by using a Base class pointer, the compiler decides at run-time which version of the function - i.e. the Base class version or the overridden Derived class version - is to be called. This is called Runtime Polymorphism.
+
+> The binding is not realized in a static form
+
+## Smart Pointers
+
++ Use unique_ptr when if you want to have single ownership(Exclusive) of resource. Only one unique_ptr can point to one resource. Since there can be one unique_ptr for single resource its not possible to copy one unique_ptr to another.
++ shared_ptr
+Use shared_ptr if you want to share ownership of resource . Many shared_ptr can point to single resource. shared_ptr maintains reference count for this propose. when all shared_ptr's pointing to resource goes out of scope the resource is destroyed.
+
+## STL 
+![Alt text](img/stdlib.png?raw=true "Title")
+
+## STA
+
+![Alt text](img/stdalg.png?raw=true "Title")
 
 
