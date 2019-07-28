@@ -160,11 +160,21 @@ Traffic_light light = Traffic_light::red;
 
 ## Modularity and Separate Compilation
 
-> The difinition (what is required by the constructors and methods is usually defined on a h header)
+> The definition (interfaces) (what is required by the constructors and methods is usually defined on a h header)
+
+> Definition -> Interfaces <- Usage
 
 
+## Namespaces
 
+**A mechanism for expressing that some declarations belong together and that their names shouldn’t clash with other names.** 
 
+To gain access to names in the stan- dard-library namespace, we can use a using-directive (§14.2.3):
+
+``` cpp
+using namespace std;
+```
+**Namespaces are primarily used to organize larger program components, such as libraries. They simplify the composition of a program out of separately developed parts.**
 
 
 
